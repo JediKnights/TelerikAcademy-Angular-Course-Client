@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../core/user.service';
 
 @Component({
-  selector: 'app-users',
+  moduleId: 'module.id',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })

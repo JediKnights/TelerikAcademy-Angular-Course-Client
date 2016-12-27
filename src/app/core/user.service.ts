@@ -14,14 +14,20 @@ export class UserService {
 
   private usersListUrl: string = 'api/users';
 
-  private fullUsersListUrl: string = DomainUrl + this.usersListUrl;
+  private usersListFullUrl: string = DomainUrl + this.usersListUrl;
 
   constructor (private http: Http) {}
 
   getUsers (): Observable<User[]> {
-    return this.http.get(this.fullUsersListUrl)
-                    .map((res: Response) => res.json())
-                    .catch(this.handleError);
+    return this.http.get(this.usersListFullUrl)
+      .map((res: Response) => res.json())
+      .catch(this.handleError);
+  }
+
+  getUserById (id: number): Observable<User> {
+    return this.http.get(this.usersListFullUrl + '/' + id)
+      .map((res: Response) => res.json())
+      .catch(this.handleError);
   }
 
   private handleError (error: Response | any) {
