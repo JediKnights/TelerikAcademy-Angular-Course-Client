@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { User } from './user';
+
 import { UserService } from '../core/user.service';
+
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   moduleId: 'module.id',
@@ -7,19 +13,16 @@ import { UserService } from '../core/user.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users = [];
+  users: Observable<User[]>;
   errorMessage = '';
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
-  getUsers(): void {
-    this.userService.getUsers()
-      .subscribe(
-        users => this.users = users,
-        error =>  this.errorMessage = <any>error);
+  onSelect(user: User) {
+    this.router.navigate(['/users', user.id]);
   }
 
   ngOnInit() {
-    this.getUsers();
+    this.users = this.userService.getUsers();
   }
 }

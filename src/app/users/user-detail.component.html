@@ -1,3 +1,8 @@
-<p>
-  users works!
-</p>
+<div *ngIf="user">
+  <div>
+    User ID: {{ user.id }}
+  </div>
+  <div>
+    Name: {{ user.name }}
+  </div>
+</div>
