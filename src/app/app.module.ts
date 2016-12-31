@@ -7,17 +7,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { UsersModule } from './users/users.module';
 
+import { ElectricalDevicesModule } from './electrical-devices/electrical-devices.module'
+
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+    ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     CoreModule,
     UsersModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ElectricalDevicesModule
   ],
   bootstrap: [AppComponent]
 })

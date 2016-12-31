@@ -5,6 +5,11 @@ const appRoutes: Routes = [{
   path: '',
   redirectTo: '/users',
   pathMatch: 'full'
+},
+{
+  path: 'electrical-devices',
+  redirectTo: '/electrical-devices',
+  pathMatch: 'full'
 }];
 
 @NgModule({
