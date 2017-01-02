@@ -16,7 +16,7 @@ import {ElectricalDevice} from '../electrical-devices/electrical-device'
 
 @Injectable()
 export class ElectricalDeviceService {
-  private electricalDevicesAPI_URL: string = 'api/electricalDevices';
+  private electricalDevicesAPI_URL: string = 'api/electricaldevices';
 
   private electricalDevicesListURL: string = DomainUrl + this.electricalDevicesAPI_URL;
 

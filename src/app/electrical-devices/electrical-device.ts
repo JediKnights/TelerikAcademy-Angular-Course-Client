@@ -1,6 +1,9 @@
 export class ElectricalDevice{
     id: number
-    model: string
+    manufacturerName: string
     serialNumber: string
-    electricalSystem: string
+    modelName: string
+    measuringUnitCurrentLevel: number
+    electricalDeviceModelId: number
+    electricalSystemId: number
 }

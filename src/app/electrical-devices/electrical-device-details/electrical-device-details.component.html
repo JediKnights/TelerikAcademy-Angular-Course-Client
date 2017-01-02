@@ -1,3 +1,7 @@
-<p>
-  electrical-device-details works!
-</p>
+<div *ngIf="electricalDevice">
+Manufacturer Name: <input class="form-control" type="text" [(ngModel)]="electricalDevice.manufacturerName"/>
+<br>
+Model Name: <input class="form-control" type="text" [(ngModel)]="electricalDevice.modelName"/>
+<br>
+Serial Number: <input class="form-control" type="text" [(ngModel)]="electricalDevice.serialNumber"/>
+</div>

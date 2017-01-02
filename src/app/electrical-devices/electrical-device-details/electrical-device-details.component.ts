@@ -11,9 +11,10 @@ import { ElectricalDeviceService} from '../../core/electrical-device.service'
 })
 export class ElectricalDeviceDetailsComponent implements OnInit {
 
+test:string
   electricalDevice: ElectricalDevice
 
-  constructor(private route: ActivatedRoute, private electricalDeviceService: ElectricalDeviceService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private electricalDeviceService: ElectricalDeviceService) { }
 
   ngOnInit() {
      this.route.params
