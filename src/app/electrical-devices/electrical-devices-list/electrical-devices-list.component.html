@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let device of electricalDevices">
+    <tr *ngFor="let device of electricalDevices | async">
       <td>
         <strong class="text-primary">{{device.model}}</strong>
       </td>

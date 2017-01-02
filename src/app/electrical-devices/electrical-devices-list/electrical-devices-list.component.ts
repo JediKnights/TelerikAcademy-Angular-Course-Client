@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { ElectricalDeviceService } from '../../core/electrical-device.service';
+
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 // Helper Classes
 import { ElectricalDevice } from '../electrical-device'
@@ -12,9 +16,11 @@ import { ElectricalDevice } from '../electrical-device'
 })
 export class ElectricalDevicesListComponent implements OnInit {
 
-  electricalDevices: ElectricalDevice[]
+  electricalDevices: Observable<ElectricalDevice[]>
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private electricalDeviceService: ElectricalDeviceService) {
+
+   }
 
   UpdateDevice(id:number){
     console.log("Updating Device ID:" + id)
@@ -44,7 +50,9 @@ export class ElectricalDevicesListComponent implements OnInit {
     newDevice.electricalSystem = 'Space Station'
     newDevice.serialNumber = '77BG77SPC1B'
 
-    this.electricalDevices = [device,otherDevice, newDevice]
+    this.electricalDevices = of([device,otherDevice, newDevice])
+
+   // this.electricalDevices = this.electricalDeviceService.getDevices();
   }
 
 }

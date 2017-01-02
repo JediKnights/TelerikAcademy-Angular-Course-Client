@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+
+import {ElectricalDevice} from '../electrical-device'
+import { ElectricalDeviceService} from '../../core/electrical-device.service'
 
 @Component({
   selector: 'app-electrical-device-details',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElectricalDeviceDetailsComponent implements OnInit {
 
-  constructor() { }
+  electricalDevice: ElectricalDevice
+
+  constructor(private route: ActivatedRoute, private electricalDeviceService: ElectricalDeviceService) { }
 
   ngOnInit() {
+     this.route.params
+      .switchMap((params: Params) => this.electricalDeviceService.getDeviceById(+params['id']))
+      .subscribe((electricalDevice: ElectricalDevice) => this.electricalDevice = electricalDevice);
   }
 
 }
