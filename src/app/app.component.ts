@@ -2,14 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `
-  <nav class="navbar navbar-dark bg-inverse">
-    <a class="navbar-brand" href="#">{{title}}</a>
-  </nav>
-  <router-outlet></router-outlet>
-  `
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'Angular 2 Client';
-  subtitle = 'Users List';
+  title = 'Mission Mars 2017 Electrical Grid Control';
+  loggedUser = 'UserName';
 }
