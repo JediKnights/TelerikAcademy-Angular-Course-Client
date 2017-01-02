@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ElectricalDevicesComponent } from './electrical-devices.component';
 import { ElectricalDevicesListComponent } from './electrical-devices-list/electrical-devices-list.component';
-// import { UserListComponent } from './user-list.component';
+import { ElectricalDeviceDetailsComponent } from './electrical-device-details/electrical-device-details.component'
 
 const ElectricalDevicesRoutes: Routes = [
   {
@@ -12,11 +12,11 @@ const ElectricalDevicesRoutes: Routes = [
       {
         path: '',
         component: ElectricalDevicesListComponent
+      },
+      {
+        path: ':id',
+        component: ElectricalDeviceDetailsComponent
       }
-      // {
-      //   path: ':id',
-      //   component: UserDetailComponent
-      // }
     ]
   }
 ];

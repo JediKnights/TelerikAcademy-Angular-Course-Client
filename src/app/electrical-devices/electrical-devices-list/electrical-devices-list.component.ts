@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 // Helper Classes
 import { ElectricalDevice } from '../electrical-device'
@@ -12,10 +14,11 @@ export class ElectricalDevicesListComponent implements OnInit {
 
   electricalDevices: ElectricalDevice[]
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   UpdateDevice(id:number){
     console.log("Updating Device ID:" + id)
+    this.router.navigate(['/electrical-devices', id])
   }
 
   DeleteDevice(id:number){
