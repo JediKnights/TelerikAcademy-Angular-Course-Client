@@ -11,17 +11,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr *ngFor="let device of electricalDevices">
       <td>
-        <strong class="text-primary">Samsung</strong>
+        <strong class="text-primary">{{device.model}}</strong>
       </td>
-      <td>1AAA23FF22</td>
-      <td>Home</td>
+      <td>{{device.serialNumber}}</td>
+      <td>{{device.electricalSystem}}</td>
       <td>      
-      <span class="text-warning glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      <span class="text-warning glyphicon glyphicon-pencil" (click)="UpdateDevice(device.id)" aria-hidden="true"></span>
       </td>
       <td>              
-      <span class="text-danger glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <span class="text-danger glyphicon glyphicon-remove" (click)="DeleteDevice(device.id)" aria-hidden="true"></span>
       </td>
     </tr>
   </tbody>
