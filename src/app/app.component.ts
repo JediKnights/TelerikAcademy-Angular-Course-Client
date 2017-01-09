@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
+import { RouterOutletMap } from '@angular/router';
+
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  template: `<router-outlet></router-outlet>`
 })
 export class AppComponent {
-  title = 'Mission Mars 2017 Electrical Grid Control';
-  loggedUser = 'UserName';
+  title = 'Mission Mars';
 }

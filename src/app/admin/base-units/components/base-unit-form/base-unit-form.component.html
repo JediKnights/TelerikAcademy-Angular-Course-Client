@@ -1,0 +1,29 @@
+<form [formGroup]="baseUnitForm" #form="ngForm" (ngSubmit)="onFormSubmit()" novalidate>
+  <div class="form-group"
+       [class.has-danger]="! baseUnitForm.controls['name'].valid &&
+                           (baseUnitForm.controls['name'].touched || form.submitted)">
+    <label class="form-control-label" for="base-unit-name">
+      Name
+    </label>
+    <input name="name"
+           id="base-unit-name"
+           type="text"
+           class="form-control"
+           formControlName="name">
+    <div *ngIf="! baseUnitForm.controls['name'].valid &&
+                (baseUnitForm.controls['name'].touched || form.submitted)">
+      <div *ngIf="baseUnitForm.controls['name'].hasError('required')" class="form-control-feedback">
+        Name is required
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-info">
+      <span *ngIf="baseUnit">
+        Update unit
+      </span>
+    <span *ngIf="! baseUnit">
+        Create unit
+      </span>
+  </button>
+</form>

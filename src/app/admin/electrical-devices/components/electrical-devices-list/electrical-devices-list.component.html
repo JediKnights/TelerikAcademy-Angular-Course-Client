@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <table class="table table-striped table-hover">
+  <thead>
+    <tr class="success">
+      <th>Device Manufacturer</th>
+      <th>Model</th>
+      <th>Serial Number</th>
+      <th>Electrical System</th>
+      <th class="warning">Update</th>
+      <th class="danger">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let device of electricalDevices | async">
+      <td>
+        <strong class="text-primary">{{device.manufacturerName}}</strong>
+      </td>
+      <td>{{device.modelName}}</td>
+      <td>{{device.serialNumber}}</td>
+      <td>{{device.electricalSystem}}</td>
+      <td>      
+      <span class="text-warning glyphicon glyphicon-pencil" (click)="goToEdit(device.id)" aria-hidden="true"></span>
+      </td>
+      <td>              
+      <span class="text-danger glyphicon glyphicon-remove" (click)="DeleteDevice(device.id)" aria-hidden="true"></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+

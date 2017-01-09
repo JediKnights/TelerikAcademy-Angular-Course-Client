@@ -1,15 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { UserService } from './user.service';
-import { ElectricalDeviceService} from './electrical-device.service'
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule
   ],
-  providers: [
-    UserService,
-    ElectricalDeviceService
-    ]
+  providers: []
 })
 export class CoreModule { }

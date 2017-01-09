@@ -1,0 +1,25 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" [routerLink]="['/about']" routerLinkActive="active">{{title}}</a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/about']" routerLinkActive="active">About<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/electrical-devices']" routerLinkActive="active">Electrical devices</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/base-units']" routerLinkActive="active">Base Units</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/users']" routerLinkActive="active">Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="active">Admin panel</a>
+      </li>
+    </ul>
+  </div>
+</nav>
