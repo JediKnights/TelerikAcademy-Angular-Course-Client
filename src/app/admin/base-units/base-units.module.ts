@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
-import { BaseUnitsRoutingModule } from './base-units-routing.module';
+// import { BaseUnitsRoutingModule } from './base-units-routing.module';
+import { baseUnitRouting } from './base-units.routes';
 
 import { BaseUnitsComponent } from './base-units.component';
 import { BaseUnitListComponent } from './components/base-unit-list/base-unit-list.component';
@@ -12,7 +13,8 @@ import { BaseUnitService } from './services/base-unit.service';
 
 @NgModule({
   imports: [
-    BaseUnitsRoutingModule,
+    // BaseUnitsRoutingModule,
+    baseUnitRouting,
     SharedModule
   ],
   declarations: [

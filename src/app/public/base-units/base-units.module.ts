@@ -9,7 +9,7 @@ import { SharedModule } from '../../shared/shared.module';
 
 // import { BaseUnitsRoutingModule } from './base-units-routing.module';
 
-import { baseUnitRouting } from './base-units-routing.module';
+import { baseUnitRouting } from './base-units.routes';
 
 @NgModule({
   imports: [

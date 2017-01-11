@@ -8,7 +8,7 @@ import { ElectricalDeviceService } from './services/electrical-device.service';
 
 // import { ElectricalDevicesRoutingModule } from './electrical-devices-routing.module';
 
-import { electricalDevicesRouting } from './electrical-devices-routing.module';
+import { electricalDevicesRouting } from './electrical-devices.routes';
 
 @NgModule({
   imports: [

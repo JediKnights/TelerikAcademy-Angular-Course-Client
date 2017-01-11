@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { ElectricalDevicesComponent } from './electrical-devices.component';
 import { ElectricalDevicesListComponent } from './components/electrical-devices-list/electrical-devices-list.component';
 import { ElectricalDevicesDetailsComponent } from './components/electrical-devices-details/electrical-devices-details.component';
 
-const electricalDevicesRoutes: Routes = [
+export const electricalDevicesRoutes: Routes = [
   {
     path: '',
     component: ElectricalDevicesComponent,
@@ -21,10 +22,14 @@ const electricalDevicesRoutes: Routes = [
   }
 ];
 
-@NgModule({
-  imports: [
-    RouterModule.forChild(electricalDevicesRoutes)
-  ],
-  exports: [RouterModule]
-})
-export class ElectricalDevicesRoutingModule {}
+export const electricalDevicesRouting = RouterModule.forChild(electricalDevicesRoutes);
+
+// Convert to routing module and eagerly load it by loadChildren property in public-roiting.module.ts after pull request:
+// (https://github.com/angular/angular/pull/13676) is merged
+// @NgModule({
+//   imports: [
+//     RouterModule.forChild(electricalDevicesRoutes)
+//   ],
+//   exports: [RouterModule]
+// })
+// export class ElectricalDevicesRoutingModule {}

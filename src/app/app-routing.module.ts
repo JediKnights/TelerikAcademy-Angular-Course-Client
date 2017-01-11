@@ -7,10 +7,9 @@ import { RouterModule, Routes } from '@angular/router';
 // export function getPublicRoutingModule() {
 //   return PublicRoutingModule;
 // }
-
 // import { publicRouting } from './public/public-routing.module';
 
-import { publicRoutes } from './public/public-routing.module';
+import { publicRoutes } from './public/public.routes';
 
 export const appRoutes: Routes = [
   {

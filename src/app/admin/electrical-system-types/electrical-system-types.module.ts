@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
-import { ElectricalSystemTypesRoutingModule } from './electrical-system-types-routing.module';
+// import { ElectricalSystemTypesRoutingModule } from './electrical-system-types-routing.module';
+import { electricalSystemTypesRouting } from './electrical-system-types.routes';
+
 
 import { ElectricalSystemTypesComponent } from './electrical-system-types.component';
 import { ElectricalSystemTypeDetailsComponent }
@@ -10,7 +12,8 @@ import { ElectricalSystemTypeService } from './services/electrical-system-type.s
 
 @NgModule({
   imports: [
-    ElectricalSystemTypesRoutingModule,
+    // ElectricalSystemTypesRoutingModule,
+    electricalSystemTypesRouting,
     SharedModule
   ],
   declarations: [

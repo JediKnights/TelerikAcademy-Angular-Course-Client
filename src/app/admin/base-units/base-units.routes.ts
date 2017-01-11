@@ -5,7 +5,7 @@ import { BaseUnitListComponent } from './components/base-unit-list/base-unit-lis
 import { BaseUnitCreateComponent } from './components/base-unit-create/base-unit-create.component';
 import { BaseUnitEditComponent } from './components/base-unit-edit/base-unit-edit.component';
 
-const baseUnitRoutes: Routes = [
+export const baseUnitRoutes: Routes = [
   {
     path: '',
     component: BaseUnitsComponent,
@@ -14,6 +14,10 @@ const baseUnitRoutes: Routes = [
         path: '',
         component: BaseUnitListComponent
       },
+      // {
+      //   path: ':id',
+      //   component: BaseUnitListComponent
+      // },
       {
         path: 'create',
         component: BaseUnitCreateComponent
@@ -26,10 +30,12 @@ const baseUnitRoutes: Routes = [
   }
 ];
 
-@NgModule({
-  imports: [
-    RouterModule.forChild(baseUnitRoutes)
-  ],
-  exports: [RouterModule]
-})
-export class BaseUnitsRoutingModule {}
+export const baseUnitRouting = RouterModule.forChild(baseUnitRoutes);
+
+// @NgModule({
+//   imports: [
+//     RouterModule.forChild(baseUnitRoutes)
+//   ],
+//   exports: [RouterModule]
+// })
+// export class BaseUnitsRoutingModule {}

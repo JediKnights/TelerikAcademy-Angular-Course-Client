@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { PublicLayoutComponent } from './public-layout/public-layout.component';
 
-import { electricalDevicesRoutes } from './electrical-devices/electrical-devices-routing.module';
+import { electricalDevicesRoutes } from './electrical-devices/electrical-devices.routes';
 
-import { baseUnitRoutes } from './base-units/base-units-routing.module';
+import { baseUnitRoutes } from './base-units/base-units.routes';
 
-import { userRoutes } from './users/user-routing.module';
+import { userRoutes } from './users/user.routes';
 
-import { pagesRoutes } from './pages/pages-routing.module';
+import { pagesRoutes } from './pages/pages.routes';
+
+import { electricalSystemRoutes } from './electrical-systems/electrical-systems.routes';
 
 export const publicRoutes: Routes = [
   {
@@ -18,30 +20,32 @@ export const publicRoutes: Routes = [
     children: [
       {
         path: 'electrical-devices',
-        // loadChildren: 'app/public/electrical-devices/electrical-devices.module#ElectricalDevicesModule'
         children: [...electricalDevicesRoutes]
       },
       {
         path: 'base-units',
-        // loadChildren: 'app/public/base-units/base-units.module#BaseUnitsModule'
         children: [...baseUnitRoutes]
       },
       {
         path: 'users',
-        // loadChildren: 'app/public/users/user.module#UserModule'
         children: [...userRoutes]
       },
       {
         path: '',
-        // loadChildren: 'app/public/pages/pages.module#PagesModule'
         children: [...pagesRoutes]
       },
+       {
+        path: '',
+        children: [...electricalSystemRoutes]
+      }
     ]
   }
 ];
 
 export const publicRouting = RouterModule.forChild(publicRoutes);
 
+// Convert to routing module and eagerly load it by loadChildren property in app-roiting.module.ts after pull request:
+// (https://github.com/angular/angular/pull/13676) is merged
 // @NgModule({
 //   imports: [
 //     RouterModule.forChild(publicRoutes)

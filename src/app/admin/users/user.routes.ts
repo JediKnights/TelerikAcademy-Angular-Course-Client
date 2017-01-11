@@ -5,7 +5,7 @@ import { UserComponent } from './user.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 
-const userRoutes: Routes = [
+export const userRoutes: Routes = [
   {
     path: '',
     component: UserComponent,
@@ -22,12 +22,14 @@ const userRoutes: Routes = [
   }
 ];
 
-@NgModule({
-  imports: [
-    RouterModule.forChild(userRoutes)
-  ],
-  exports: [
-    RouterModule
-  ]
-})
-export class UserRoutingModule {}
+export const userRouting = RouterModule.forChild(userRoutes);
+
+// @NgModule({
+//   imports: [
+//     RouterModule.forChild(userRoutes)
+//   ],
+//   exports: [
+//     RouterModule
+//   ]
+// })
+// export class UserRoutingModule {}

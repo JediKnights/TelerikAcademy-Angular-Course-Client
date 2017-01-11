@@ -20,6 +20,8 @@ export const baseUnitRoutes: Routes = [
 
 export const baseUnitRouting = RouterModule.forChild(baseUnitRoutes);
 
+// Convert to routing module and eagerly load it by loadChildren property in public-roiting.module.ts after pull request:
+// (https://github.com/angular/angular/pull/13676) is merged
 // @NgModule({
 //   imports: [
 //     RouterModule.forChild(baseUnitRoutes)

@@ -3,25 +3,30 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 
+import { electricalDevicesRoutes } from './electrical-devices/electrical-devices.routes';
+import { baseUnitRoutes } from './base-units/base-units.routes';
+import { userRoutes } from './users/user.routes';
+import { dashboardRoutes } from './dashboard/dashboard.routes';
+
 export const adminRoutes: Routes = [
   {
     path: '',
     component: AdminLayoutComponent,
     children: [{
       path: 'electrical-devices',
-      loadChildren: 'app/admin/electrical-devices/electrical-devices.module#ElectricalDevicesModule'
+      children: [...electricalDevicesRoutes]
     },
     {
       path: 'base-units',
-      loadChildren: 'app/admin/base-units/base-units.module#BaseUnitsModule'
+      children: [...baseUnitRoutes]
     },
     {
       path: 'users',
-      loadChildren: 'app/admin/users/user.module#UserModule'
+      children: [...userRoutes]
     },
     {
       path: '',
-      loadChildren: 'app/admin/dashboard/dashboard.module#DashboardModule'
+      children: [...dashboardRoutes]
     }]
   }
 ];
