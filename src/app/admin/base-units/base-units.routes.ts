@@ -16,7 +16,7 @@ export const baseUnitRoutes: Routes = [
       },
       // {
       //   path: ':id',
-      //   component: BaseUnitListComponent
+      //   component: BaseUnitDetailsComponent
       // },
       {
         path: 'create',

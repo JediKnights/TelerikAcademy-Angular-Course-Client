@@ -43,9 +43,9 @@ export class BaseUnitService {
     return this.baseUnits
       .map((baseUnits: BaseUnit[]) => baseUnits.find(bu => bu.id === id))
       .switchMap((baseUnit: BaseUnit) => {
-        if (baseUnit) {
-          return of(baseUnit);
-        }
+        // if (baseUnit) {
+        //   return of(baseUnit);
+        // }
 
         return this.http.get(this.baseUnitsListFullUrl + '/' + id)
           .map((res: Response) => {

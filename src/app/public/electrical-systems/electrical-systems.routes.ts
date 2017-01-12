@@ -5,9 +5,8 @@ import { ElectricalSystemsComponent } from './electrical-systems.component';
 
 export const electricalSystemRoutes: Routes = [
   {
-    path: 'electrical-systems',
-    component: ElectricalSystemsComponent,
-    children: []
+    path: '',
+    component: ElectricalSystemsComponent
   }
 ];
 

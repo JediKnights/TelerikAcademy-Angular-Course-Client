@@ -31,12 +31,12 @@ export const publicRoutes: Routes = [
         children: [...userRoutes]
       },
       {
+        path: 'electrical-systems',
+        children: [...electricalSystemRoutes]
+      },
+      {
         path: '',
         children: [...pagesRoutes]
-      },
-       {
-        path: '',
-        children: [...electricalSystemRoutes]
       }
     ]
   }

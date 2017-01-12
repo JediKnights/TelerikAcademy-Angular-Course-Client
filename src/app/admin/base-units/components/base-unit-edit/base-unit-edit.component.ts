@@ -8,7 +8,7 @@ import { BaseUnitService } from '../../services/base-unit.service';
   selector: 'app-admin-base-unit-edit',
   template: `
     <h1>Edit Base Unit</h1>
-    <app-admin-base-unit-form [baseUnit]="baseUnit" (onSubmit)="onSubmit($event)"></app-admin-base-unit-form>
+    <app-admin-base-unit-form *ngIf="baseUnit" [baseUnit]="baseUnit" (onSubmit)="onSubmit($event)"></app-admin-base-unit-form>
   `,
 })
 export class BaseUnitEditComponent implements OnInit {
@@ -20,7 +20,9 @@ export class BaseUnitEditComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .switchMap((params: Params) => this.baseUnitService.getById(+params['id']))
-      .subscribe((baseUnit: BaseUnit) => this.baseUnit = baseUnit);
+      .subscribe((baseUnit: BaseUnit) => {
+        this.baseUnit = baseUnit;
+      });
   }
 
   public onSubmit(baseUnit: BaseUnit) {
