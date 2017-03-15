@@ -1,7 +1,3 @@
-<div *ngIf="electricalDevice">
-Manufacturer Name: <input class="form-control" type="text" [(ngModel)]="electricalDevice.manufacturerName"/>
-<br>
-Model Name: <input class="form-control" type="text" [(ngModel)]="electricalDevice.modelName"/>
-<br>
-Serial Number: <input class="form-control" type="text" [(ngModel)]="electricalDevice.serialNumber"/>
-</div>
+<h1>Edit Electrical device</h1>
+<app-admin-electrical-device-form class="container" *ngIf="electricalDevice" [electricalDevice]="electricalDevice" (onSubmit)="onSubmit($event)">
+</app-admin-electrical-device-form>

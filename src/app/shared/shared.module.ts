@@ -4,13 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+import 'hammerjs';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule,
+    MaterialModule.forRoot(),
     NgbModule,
     InfiniteScrollModule,
   ],

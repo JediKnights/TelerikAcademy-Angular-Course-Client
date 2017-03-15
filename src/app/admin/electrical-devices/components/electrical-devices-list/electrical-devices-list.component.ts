@@ -23,10 +23,6 @@ export class ElectricalDevicesListComponent implements OnInit {
     this.router.navigate(['edit', id], { relativeTo: this.route });
   }
 
-  DeleteDevice(id: number){
-    console.log('Deleting Device ID:' + id);
-  }
-
   ngOnInit() {
     this.electricalDevices = this.electricalDeviceService.getDevices();
   }

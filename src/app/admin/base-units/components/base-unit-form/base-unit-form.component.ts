@@ -13,6 +13,8 @@ export class BaseUnitFormComponent implements OnInit {
   @Input() public baseUnit?: BaseUnit;
   @Output() public onSubmit = new EventEmitter();
 
+  @Output() public onCancel = new EventEmitter();
+
   public constructor(private formBuilder: FormBuilder) {
   }
 
@@ -37,5 +39,9 @@ export class BaseUnitFormComponent implements OnInit {
 
       this.onSubmit.emit(data);
     }
+  }
+
+  public goBack() {
+    this.onCancel.emit();
   }
 }

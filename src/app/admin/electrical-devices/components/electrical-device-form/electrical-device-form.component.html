@@ -1,0 +1,29 @@
+<form [formGroup]="electricalDeviceForm" #form="ngForm" (ngSubmit)="onFormSubmit()" novalidate>
+  <div class="form-group"
+       [class.has-danger]="! electricalDeviceForm.controls['serialNumber'].valid &&
+                           (electricalDeviceForm.controls['serialNumber'].touched || form.submitted)">
+    <label class="form-control-label" for="electrical-device-serialnumber">
+      Serial Number
+    </label>
+    <input name="serialNumber"
+           id="electrical-device-serialnumber"
+           type="text"
+           class="form-control"
+           formControlName="serialNumber">
+    <div *ngIf="! electricalDeviceForm.controls['serialNumber'].valid &&
+                (electricalDeviceForm.controls['serialNumber'].touched || form.submitted)">
+      <div *ngIf="electricalDeviceForm.controls['serialNumber'].hasError('required')" class="form-control-feedback">
+        Serial Number is required
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-info">
+    <span *ngIf="electricalDevice">
+      Update
+    </span>
+    <span *ngIf="!electricalDevice">
+      Create electrical device
+    </span>
+  </button>
+</form>

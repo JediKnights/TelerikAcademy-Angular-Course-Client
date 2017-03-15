@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    height: 100%;
+    padding-bottom: 68px;
+}
+
+.mt-15 {
+  margin-top: 15px !important;
+}
+
+.mt-25 {
+  margin-top: 25px !important;
+}
+
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}

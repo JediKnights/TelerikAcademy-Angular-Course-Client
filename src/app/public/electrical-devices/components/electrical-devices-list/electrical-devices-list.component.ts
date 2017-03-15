@@ -17,16 +17,10 @@ export class ElectricalDevicesListComponent implements OnInit {
   electricalDevices: Observable<ElectricalDevice[]>;
 
   constructor(private router: Router, private electricalDeviceService: ElectricalDeviceService) {
-
-   }
-
-  UpdateDevice(id: number){
-    console.log('Updating Device ID:' + id);
-    this.router.navigate(['/electrical-devices', id]);
   }
 
-  DeleteDevice(id: number){
-    console.log('Deleting Device ID:' + id);
+  goToDetails(id: number){
+    this.router.navigate(['/electrical-devices', id]);
   }
 
   ngOnInit() {

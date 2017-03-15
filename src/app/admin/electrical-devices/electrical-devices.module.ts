@@ -7,6 +7,7 @@ import { ElectricalDevicesComponent } from './electrical-devices.component';
 import { ElectricalDevicesListComponent } from './components/electrical-devices-list/electrical-devices-list.component';
 import { ElectricalDevicesDetailsComponent } from './components/electrical-devices-details/electrical-devices-details.component';
 import { ElectricalDevicesEditComponent } from './components/electrical-devices-edit/electrical-devices-edit.component';
+import { ElectricalDeviceFormComponent } from './components/electrical-device-form/electrical-device-form.component';
 
 import { ElectricalDeviceService } from './services/electrical-device.service';
 
@@ -20,7 +21,8 @@ import { ElectricalDeviceService } from './services/electrical-device.service';
     ElectricalDevicesComponent,
     ElectricalDevicesListComponent,
     ElectricalDevicesDetailsComponent,
-    ElectricalDevicesEditComponent
+    ElectricalDevicesEditComponent,
+    ElectricalDeviceFormComponent
     ],
     providers: [ElectricalDeviceService]
 })

@@ -6,7 +6,8 @@ import { BaseUnitService } from '../../services/base-unit.service';
 import { BaseUnit } from '../../models/base-unit';
 
 @Component({
-  templateUrl: './base-unit-list.component.html'
+  templateUrl: './base-unit-list.component.html',
+  styleUrls: ['./base-unit-list.component.css', '../../styles/base-units.styles.css']
 })
 export class BaseUnitListComponent implements OnInit {
   public baseUnits: Observable<BaseUnit[]>;

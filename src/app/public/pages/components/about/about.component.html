@@ -1,166 +1,167 @@
-<h1>Mission Mars 2017 Electrical Grid Control</h1>
+<article class="container">
+  <h1>Mission Mars 2017 Electrical Grid Control</h1>
+  <div>
+    <h2>Short description</h2>
+    <p>
+      This is a software system for controlling the electrical grid system on Mission "Mars".
+    </p>
+    <p>
+      <img alt="" src="assets/images/mission-mars.jpg" width="600">
+    </p>
 
-<div>
-  <h2>Short description</h2>
-  <p>
-    This is a software system for controlling the electrical grid system on Mission "Mars".
-  </p>
-  <p>
-    <img alt="" src="assets/images/mission-mars.jpg" width="600">
-  </p>
+    <h2>Detailed description</h2>
+    <p>
+      The "Mission Mars" spaceship will be launched on January, 20th 2017. It is expected to reach Mars on March, 25th 2017.
+      The Mars base will be established in cave "Kapuali wahi" (Secure Home) so that the crew would be protected from the
+      hazardous sun radiation.
+    </p>
 
-  <h2>Detailed description</h2>
-  <p>
-    The "Mission Mars" spaceship will be launched on January, 20th 2017. It is expected to reach Mars on March, 25th 2017.
-    The Mars base will be established in cave "Kapuali wahi" (Secure Home) so that the crew would be protected from the
-    hazardous sun radiation.
-  </p>
+    <h2>Functional requirements</h2>
+    <p>
+      The Mars base electrical grid control system will store and smartly distribute energy from the electricity generators
+      (solar panels, nuclear pack) to different utilities (green house, laboratory, air filtration system, crew rooms, etc.)
+      located at the base.
+    </p>
+    <p>
+      The base consists of the following <strong>units:</strong>
+    </p>
 
-  <h2>Functional requirements</h2>
-  <p>
-    The Mars base electrical grid control system will store and smartly distribute energy from the electricity generators
-    (solar panels, nuclear pack) to different utilities (green house, laboratory, air filtration system, crew rooms, etc.)
-    located at the base.
-  </p>
-  <p>
-    The base consists of the following <strong>units:</strong>
-  </p>
-
-  <ol>
-    <li>Green House</li>
-    <li>Science Laboratory</li>
-    <li>Control room</li>
-    <li>Crew dorms</li>
-    <li>Living room</li>
-    <li>Kitchen</li>
-    <li>Restroom</li>
-    <li>Mars Rovers car park</li>
-    <li>Warehouse</li>
-  </ol>
-  <p>
-    The base has the following energy generators:
-  </p>
-  <ul>
-    <li>
-      <strong>50 solar panels</strong> –
-      each solar panel generates 200 Watts per hour (max power rating) – all solar panels produce totally 10 kW per hour.
-    </li>
-    <li>
-      <strong>8 radioisotope thermoelectric generators</strong> –
-      each generates 500 Watts per hour (max), totally 4 kW per hour.
-    </li>
-  </ul>
-  <p>
-    Totally all energy sources generate: 14 kWh (max power rating).
-  </p>
-  <p>
-    The generators charge the battery packs, and all units consume electricity from the battery packs.
-  </p>
-  <p>
-    There is 1 Tesla Powerpack 2.0 unit - capacity: 200 kWh (200 kilowatts per hour).
-  </p>
-  <p>
-    Solar panels energy production (kWh) should be higher during daytime and respectively lower during nighttime.
-  </p>
-  <p>
-    Each unit could have several electrical systems, e.g. control room unit has: air-conditioning, lighting, computers, etc.
-  </p>
-  <p>
-    List of electrical systems (logical grouping):
-  </p>
-  <ul>
-    <li>Air-conditioning</li>
-    <li> Waste recycling (solid waste recycling, liquids recycling)</li>
-    <li>Lighting</li>
-    <li>Computers</li>
-    <li>Home appliance</li>
-  </ul>
-  Each electrical system could have different electrical device types, for example:
-  <ul>
-    <li>
-      Home appliance (refrigerator, washing-machine, blender, oven, coffeemaker);
-    </li>
-    <li>
-      Air-conditioning (air-heater, air purifier);
-    </li>
-  </ul>
-  <p>
-    There will be instances of electrical devices:
-  </p>
-  <p>
-    Each electrical device should have: serial number and model, each model has manufacturer (Philips, Siemens, Panasonic, etc.) and device type (e.g. washing machine, blender, coffeemaker, refrigerator, etc.)
-  </p>
-  <p>
-    To each device is either attached or embedded Smart connector (see examples: Melissa Climate™, Aquanta™).
-    The smart connector connects to the network, sends device information (serial number, etc.) to the grid server,
-    and the grid server can modify the electrical device main parameter
-    (e.g. increase air-conditioner temperature by 1 degree Celsius).
-  </p>
-  <p>Steps:</p>
-  <ol>
-    <li>
-      Create Base unit (e.g. Green House)
-    </li>
-    <li>
-      Create electrical systems for this unit (Lights, Air-conditioning)
-    </li>
-    <li>
-      Create models for each device that will be connected to the grid – each model should have: Name, MinValue, MaxValue, MeasuringUnit.
-    </li>
-  </ol>
-  <p>
-    MinValue, MaxValue – for example, if the device is air-conditioner, the MinValue could be 18 C, MaxValue = 26 C. Measuring Unit is C (temperature in Celsius).
-  </p>
-  <p>
-    When a new electrical device having smart controller attached to it connects to the grid, the connector sends the device serial number
-    to the grid server, which in turn checks if a device with this serial number is registered in the database (table: ElectricalDevices,
-    Column: SerialNumber). If it is not, it then creates a new record in table ElectricalDevices. If the last four digits of the Serial
-    number match the ModelIdentificator in the DeviceModels table, then this device is related to the relevant model.
-  </p>
-  <p>
-    Using an endless loop on the grid server, each second the consumed energy by the connected devices (the summed up energy consumed by
-    each device for 1 second) is being subtracted from the battery charge and the generated energy for 1 second by the generators is being
-    added.
-  </p>
-  <p>
-    There are several feature areas on the website:
-  </p>
-  <ul>
-    <li>
-      Admin Panel - for creating, modifying and deleting users.
-    </li>
-    <li>
-      Battery Pack Status Panel
-    </li>
-    <li>
-      Mars Base Units – list base units (e.g. Green House, Science Lab, Control room, etc.) and their current energy consumption
-      rate (kWh), create unit, edit unit, and delete unit.
-    </li>
-    <li>
-      Electrical Systems (e.g. air-conditioning, lights, waste recycling, etc.)
-    </li>
-    <li>
-      Electrical Devices – manual creation of electrical device (as a backup option – usually smart connectors are being attached to
-      devices and then they are just connected to the grid), edit of electrical appliance main parameter (temperature, lumens, etc.),
-      electrical device deletion.
-    </li>
-  </ul>
-  <p>
-    When you want to switch on / off a device or modify its main parameter (e.g. temperature, lumens, etc.) first go to the Units page,
-    expand the relevant unit (e.g. Kitchen), click on the specific electrical system (Home appliances), then a new page with this
-    electrical system will open, at the top of the screen there will be the name of the electrical system along with the base unit it is
-    part of (e.g. Home Appliances - Kitchen). Below the title there will be a list of electrical devices (e.g. washing-machine, oven,
-    coffeemaker, blender, etc.). Click on the specific device and you will be redirected to its edit page. On the edit page there is an
-    option to manually – switch on / off the device. When the device is switched on, there is a slider option displaying the device main
-    parameter current value (e.g. temperature - 21 C). You can move the slider to increase or decrease the temperature having a specific
-    step (e.g. 1 C). After changing the device main parameter and clicking on "Save" button, immediately the device energy consumption
-    increases or decreases (e.g. if temperature is increased / decreased) – this means that the total energy consumption rate increases /
-    decreases. In the DeviceModels table there is a column "WattsPerStep" displaying for each device model how much the device energy
-    consumption (Watts) should increase / decrease when the measuring unit changes with a single step (e.g. 1 C). This way we can
-    calculate the energy consumption change - EnergyConsumptionChange = (MeasuringUnitChange / Step) * WattsPerStep;
-  </p>
-  <p>
-    Each 1 hour every energy generator production, and every electrical device consumption is recorded for historical and analytical
-    (prediction) purposes – tables “EnergyGeneratedHistory”, “EnergyConsumedHistory”
-  </p>
-</div>
+    <ol>
+      <li>Green House</li>
+      <li>Science Laboratory</li>
+      <li>Control room</li>
+      <li>Crew dorms</li>
+      <li>Living room</li>
+      <li>Kitchen</li>
+      <li>Restroom</li>
+      <li>Mars Rovers car park</li>
+      <li>Warehouse</li>
+    </ol>
+    <p>
+      The base has the following energy generators:
+    </p>
+    <ul>
+      <li>
+        <strong>50 solar panels</strong> –
+        each solar panel generates 200 Watts per hour (max power rating) – all solar panels produce totally 10 kW per hour.
+      </li>
+      <li>
+        <strong>8 radioisotope thermoelectric generators</strong> –
+        each generates 500 Watts per hour (max), totally 4 kW per hour.
+      </li>
+    </ul>
+    <p>
+      Totally all energy sources generate: 14 kWh (max power rating).
+    </p>
+    <p>
+      The generators charge the battery packs, and all units consume electricity from the battery packs.
+    </p>
+    <p>
+      There is 1 Tesla Powerpack 2.0 unit - capacity: 200 kWh (200 kilowatts per hour).
+    </p>
+    <p>
+      Solar panels energy production (kWh) should be higher during daytime and respectively lower during nighttime.
+    </p>
+    <p>
+      Each unit could have several electrical systems, e.g. control room unit has: air-conditioning, lighting, computers, etc.
+    </p>
+    <p>
+      List of electrical systems (logical grouping):
+    </p>
+    <ul>
+      <li>Air-conditioning</li>
+      <li> Waste recycling (solid waste recycling, liquids recycling)</li>
+      <li>Lighting</li>
+      <li>Computers</li>
+      <li>Home appliance</li>
+    </ul>
+    Each electrical system could have different electrical device types, for example:
+    <ul>
+      <li>
+        Home appliance (refrigerator, washing-machine, blender, oven, coffeemaker);
+      </li>
+      <li>
+        Air-conditioning (air-heater, air purifier);
+      </li>
+    </ul>
+    <p>
+      There will be instances of electrical devices:
+    </p>
+    <p>
+      Each electrical device should have: serial number and model, each model has manufacturer (Philips, Siemens, Panasonic, etc.) and device type (e.g. washing machine, blender, coffeemaker, refrigerator, etc.)
+    </p>
+    <p>
+      To each device is either attached or embedded Smart connector (see examples: Melissa Climate™, Aquanta™).
+      The smart connector connects to the network, sends device information (serial number, etc.) to the grid server,
+      and the grid server can modify the electrical device main parameter
+      (e.g. increase air-conditioner temperature by 1 degree Celsius).
+    </p>
+    <p>Steps:</p>
+    <ol>
+      <li>
+        Create Base unit (e.g. Green House)
+      </li>
+      <li>
+        Create electrical systems for this unit (Lights, Air-conditioning)
+      </li>
+      <li>
+        Create models for each device that will be connected to the grid – each model should have: Name, MinValue, MaxValue, MeasuringUnit.
+      </li>
+    </ol>
+    <p>
+      MinValue, MaxValue – for example, if the device is air-conditioner, the MinValue could be 18 C, MaxValue = 26 C. Measuring Unit is C (temperature in Celsius).
+    </p>
+    <p>
+      When a new electrical device having smart controller attached to it connects to the grid, the connector sends the device serial number
+      to the grid server, which in turn checks if a device with this serial number is registered in the database (table: ElectricalDevices,
+      Column: SerialNumber). If it is not, it then creates a new record in table ElectricalDevices. If the last four digits of the Serial
+      number match the ModelIdentificator in the DeviceModels table, then this device is related to the relevant model.
+    </p>
+    <p>
+      Using an endless loop on the grid server, each second the consumed energy by the connected devices (the summed up energy consumed by
+      each device for 1 second) is being subtracted from the battery charge and the generated energy for 1 second by the generators is being
+      added.
+    </p>
+    <p>
+      There are several feature areas on the website:
+    </p>
+    <ul>
+      <li>
+        Admin Panel - for creating, modifying and deleting users.
+      </li>
+      <li>
+        Battery Pack Status Panel
+      </li>
+      <li>
+        Mars Base Units – list base units (e.g. Green House, Science Lab, Control room, etc.) and their current energy consumption
+        rate (kWh), create unit, edit unit, and delete unit.
+      </li>
+      <li>
+        Electrical Systems (e.g. air-conditioning, lights, waste recycling, etc.)
+      </li>
+      <li>
+        Electrical Devices – manual creation of electrical device (as a backup option – usually smart connectors are being attached to
+        devices and then they are just connected to the grid), edit of electrical appliance main parameter (temperature, lumens, etc.),
+        electrical device deletion.
+      </li>
+    </ul>
+    <p>
+      When you want to switch on / off a device or modify its main parameter (e.g. temperature, lumens, etc.) first go to the Units page,
+      expand the relevant unit (e.g. Kitchen), click on the specific electrical system (Home appliances), then a new page with this
+      electrical system will open, at the top of the screen there will be the name of the electrical system along with the base unit it is
+      part of (e.g. Home Appliances - Kitchen). Below the title there will be a list of electrical devices (e.g. washing-machine, oven,
+      coffeemaker, blender, etc.). Click on the specific device and you will be redirected to its edit page. On the edit page there is an
+      option to manually – switch on / off the device. When the device is switched on, there is a slider option displaying the device main
+      parameter current value (e.g. temperature - 21 C). You can move the slider to increase or decrease the temperature having a specific
+      step (e.g. 1 C). After changing the device main parameter and clicking on "Save" button, immediately the device energy consumption
+      increases or decreases (e.g. if temperature is increased / decreased) – this means that the total energy consumption rate increases /
+      decreases. In the DeviceModels table there is a column "WattsPerStep" displaying for each device model how much the device energy
+      consumption (Watts) should increase / decrease when the measuring unit changes with a single step (e.g. 1 C). This way we can
+      calculate the energy consumption change - EnergyConsumptionChange = (MeasuringUnitChange / Step) * WattsPerStep;
+    </p>
+    <p>
+      Each 1 hour every energy generator production, and every electrical device consumption is recorded for historical and analytical
+      (prediction) purposes – tables “EnergyGeneratedHistory”, “EnergyConsumedHistory”
+    </p>
+  </div>
+</article>

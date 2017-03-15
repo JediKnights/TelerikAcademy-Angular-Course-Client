@@ -19,7 +19,17 @@ export class ElectricalDevicesEditComponent implements OnInit {
 
   getDevice(): void {
     this.route.params
-      .switchMap((params: Params) => this.electricalDeviceService.getDeviceById(+params['id']))
+      .switchMap((params: Params) => this.electricalDeviceService.getElectricalDeviceById(+params['id']))
       .subscribe((electricalDevice: ElectricalDevice) => this.electricalDevice = electricalDevice);
+  }
+
+  public onSubmit(electricalDevice: ElectricalDevice) {
+    this.electricalDeviceService
+      .updateElectricalDevice(electricalDevice)
+      .subscribe(() => {
+        this.router.navigate(['/admin/electrical-devices']);
+      }, (error) => {
+        console.log(error);
+      });
   }
 }

@@ -1,4 +1,4 @@
-export class ElectricalDevice{
+export class ElectricalDevice {
     id: number;
     manufacturerName: string;
     serialNumber: string;
